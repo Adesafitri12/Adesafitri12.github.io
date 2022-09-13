@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Table Jquery Ade Safitri</title>
+  </head>
+  <style>
+    a {
+      text-decoration: none;
+      border: solid 1px red;
+    }
+    h1 {
+      text-align: center;
+      margin-top: -10px;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 5px;
+    }
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    td {
+      border: 1px solid black;
+      text-align: left;
+      padding: 8px;
+      /* background-color: bisque; */
+    }
+    th {
+      background-color: antiquewhite;
+      border: 1px solid black;
+      text-align: left;
+      padding: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    th:hover {
+      background-color: blue;
+      color: black;
+    }
+    tr {
+      background-color: bisque;
+      transition: 0.2s;
+      background-color: pink;
+    }
+    tr:hover {
+      background-color: azure;
+    }
+
+    tr:nth-child(even) {
+      background-color: pink;
+      transition: 0.2s;
+    }
+    tr:nth-child(even):hover {
+      background-color: #bb0bec;
+      color: aliceblue;
+    }
+    .delete {
+      background-color: red;
+      color: rgb(246, 242, 242);
+      transition: 0.2s;
+    }
+    .delete:hover {
+      background-color: blue;
+      transform: scale(1);
+    }
+  </style>
+  <body>
+    <h1>Top 5 Bestie</h1>
+    <h2>Ade Safitri</h2>
+    <h2>41215341</h2>
+
+    <table>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Alamat</th>
+        <th>Aksi</th>
+      </tr>
+      <tr id="baris__1">
+        <td>1</td>
+        <td class="nama">Erica Dwi</td>
+        <td class="alamat">Majalengka</td>
+        <td class="delete" id="delete__1">Hapus</td>
+      </tr>
+      <tr id="baris__2">
+        <td>2</td>
+        <td class="nama">Dewi Srikandi Wiharta</td>
+        <td class="alamat">Cirebon</td>
+        <td class="delete" id="delete__2">Hapus</td>
+      </tr>
+      <tr id="baris__3">
+        <td>3</td>
+        <td class="nama">Wulan Novita</td>
+        <td class="alamat">Cirebon</td>
+        <td class="delete" id="delete__3">Hapus</td>
+      </tr>
+      <tr id="baris__4">
+        <td>4</td>
+        <td class="nama">Wahyuni Safitri</td>
+        <td class="alamat">Cirebon</td>
+        <td class="delete" id="delete__4">Hapus</td>
+      </tr>
+      <tr id="baris__5">
+        <td>5</td>
+        <td class="nama">Dedi Aji</td>
+        <td class="alamat">Cirebon</td>
+        <td class="delete" id="delete__5">Hapus</td>
+      </tr>
+    </table>
+    <script>
+      $(document).ready(function () {
+        //alert(0)
+        $('.nama').click(function () {
+          //alert(3)
+          let penyebut = $(this).text();
+          // alert(isi);
+          let hasil = prompt('Anda yakin mau mengganti Nama ini?', penyebut);
+          if (!hasil) return;
+          {
+            //alert(hasil)
+            $(this).text(hasil);
+          }
+        });
+
+        $('.alamat').click(function () {
+          //alert(3)
+          let penyebut = $(this).text();
+          // alert(isi);
+          let hasil = prompt('Anda yakin mau mengganti Alamat ini?', penyebut);
+          if (!hasil) return;
+          {
+            //alert(hasil)
+            $(this).text(hasil);
+          }
+        });
+        $('.delete').click(function () {
+          // alert(1)
+          let serius = confirm('Anda yakin mau menghapus baris ini ?');
+          if (!serius) return;
+          let id = $(this).prop('id');
+          //alert(id);
+
+          let rid = id.split('__');
+          let baris_ke = rid[1];
+          //alert(baris__ke)
+          $('#baris__' + baris_ke).slideUp();
+        });
+      });
+    </script>
+  </body>
+</html>
